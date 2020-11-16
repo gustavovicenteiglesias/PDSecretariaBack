@@ -79,7 +79,25 @@ public class EscuelaRestController {
 		
 	}
 	
-	
+	@GetMapping(value="profesxescuela/{id}")
+	public Map<String, Object> dato(@PathVariable("id") Integer id){
+		
+		HashMap<String,Object> response = new HashMap<String,Object>();
+		
+		try { 
+			Iterable<Escuela> empresaList; 
+			empresaList =  escuelaServiceApi.proofesporescuela(id);
+			response.put("message","Successful load");
+			response.put("list",empresaList);
+			response.put("success",true);
+			return response;
+			
+		} catch (Exception e) {  
+			response.put("message",e.getMessage()); 
+			response.put("success ",false);
+			return response;
+		}
+	}
 	
 	@GetMapping(value = "find/{id}" )
 	public Map<String, Object> data(@PathVariable("id") Integer id){

@@ -105,4 +105,12 @@ public class EscuelaServiceImpl  implements EscuelaServiceApi {
 		return (List<Escuela>) escuelaDaoApi.findByNombreLike(nombre);
 	}
 
+
+
+	@Override
+	public Iterable<Escuela> proofesporescuela(int id) {
+		// TODO Auto-generated method stub
+		return escuelaDaoApi.proofesporescuela(id);
+	}
+
 }

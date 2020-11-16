@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
 
@@ -60,17 +61,18 @@ public class InicioController {
 	public ModelAndView login() {
 		return new ModelAndView("inicio");
 	}
-	@RequestMapping("/admin/map")
+	@RequestMapping("/*")
 	public ModelAndView login1() {
 		return new ModelAndView("inicio");
 	}
 	
-	@RequestMapping("/admin/tables")
+	@RequestMapping("/profile")
 	public ModelAndView login2() {
 		return new ModelAndView("inicio");
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/login")
+	
 	public ModelAndView login3() {
 		return new ModelAndView("inicio");
 	}

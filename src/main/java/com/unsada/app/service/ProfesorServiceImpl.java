@@ -86,6 +86,12 @@ public class ProfesorServiceImpl  implements ProfesorServiceApi{
 		return profesorDaoApi.findUltimo();
 	}
 
+	@Override
+	public Iterable<Profesor> proofesporescuela(int id) {
+		// TODO Auto-generated method stub
+		return profesorDaoApi.proofesporescuela(id);
+	}
+
 
 
 }

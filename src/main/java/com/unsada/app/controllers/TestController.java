@@ -4,12 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.unsada.app.modelo.Escuela;
 import com.unsada.app.service.EscuelaServiceApi;
@@ -20,7 +23,11 @@ import com.unsada.app.service.EscuelaServiceApi;
 public class TestController {
 	@Autowired
 	private EscuelaServiceApi  escuelaServiceApi ; 
+	@Autowired
+	DataSource datasource;
 	@GetMapping("/all")
+	//public ModelAndView allAccess() {
+		//return new ModelAndView("inicio");
 	public String allAccess() {
 		return "Public Content.";
 	}

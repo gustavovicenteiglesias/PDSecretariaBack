@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.unsada.app.modelo.Escuela;
 import com.unsada.app.modelo.Profesor;
 
 import com.unsada.app.service.ProfesorServiceApi;
@@ -156,6 +157,26 @@ public class ProfesorRestController {
 				.header("Content-Disposition", "inline; filename=\"reporte" + id + ".pdf\"").body(bytes);
 	}
 */
+	@GetMapping(value="profesxescuela/{id}")
+	public Map<String, Object> dato(@PathVariable("id") Integer id){
+		
+		HashMap<String,Object> response = new HashMap<String,Object>();
+		
+		try { 
+			Iterable<Profesor> empresaList; 
+			empresaList =  profesorServiceApi.proofesporescuela(id);
+			response.put("message","Successful load");
+			response.put("list",empresaList);
+			response.put("success",true);
+			return response;
+			
+		} catch (Exception e) {  
+			response.put("message",e.getMessage()); 
+			response.put("success ",false);
+			return response;
+		}
+	}
+	
 	@GetMapping(value = "/all")
 	public Map<String, Object> list() {
 
