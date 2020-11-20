@@ -53,6 +53,7 @@ public class Profesor implements Serializable {
 			)
 	 
 	 @JsonManagedReference
+	 @JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private List<Escuela> escuelas = new ArrayList<>();
 
