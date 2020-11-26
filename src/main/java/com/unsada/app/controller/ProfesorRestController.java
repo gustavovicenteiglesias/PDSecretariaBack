@@ -254,7 +254,7 @@ public class ProfesorRestController {
 		}
 	}
 	@PostMapping(value = "/create")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	
 	public ResponseEntity<String> create(@RequestBody Profesor data) {
 
 		try {
@@ -269,7 +269,7 @@ public class ProfesorRestController {
 	}
 
 	@PutMapping(value = "/update/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+
 	public Map<String, Object> update(@PathVariable("id") Integer id, @RequestBody Profesor data) {
 			System.out.println(data);
 		HashMap<String, Object> response = new HashMap<String, Object>();
