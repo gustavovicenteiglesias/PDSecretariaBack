@@ -66,38 +66,6 @@ public class Escuela implements Serializable{
 		}
 
 
-
-
-
-
-		public List<Profesor> getProfesores() {
-			return profesores;
-		}
-
-
-		public void setProfesores(List<Profesor> profesores) {
-			this.profesores = profesores;
-		}
-
-
-		
-
-
-		public Escuela(Integer idEscuela, String nombre, String diegep, String suvencion, List<Profesor> profesores) {
-			super();
-			this.idEscuela = idEscuela;
-			this.nombre = nombre;
-			this.diegep = diegep;
-			this.suvencion = suvencion;
-			this.profesores = profesores;
-		}
-
-
-		public Escuela() {
-			super();
-		}
-
-
 		public String getDiegep() {
 			return diegep;
 		}
@@ -118,21 +86,28 @@ public class Escuela implements Serializable{
 		}
 
 
-		@Override
-		public String toString() {
-			return "Escuela [idEscuela=" + idEscuela + ", nombre=" + nombre + ", diegep=" + diegep + ", suvencion="
-					+ suvencion + ", profesores=" + profesores + "]";
+		public Escuela(Integer idEscuela, String nombre, String diegep, String suvencion) {
+			super();
+			this.idEscuela = idEscuela;
+			this.nombre = nombre;
+			this.diegep = diegep;
+			this.suvencion = suvencion;
 		}
 
 
-		
+		public Escuela() {
+			super();
+		}
 
 
-		
-		
-		
-		
-		
+		@Override
+		public String toString() {
+			return "Escuela [idEscuela=" + idEscuela + ", nombre=" + nombre + ", diegep=" + diegep + ", suvencion="
+					+ suvencion + "]";
+		}
 
-		
+
+	
+
+	    
 }
