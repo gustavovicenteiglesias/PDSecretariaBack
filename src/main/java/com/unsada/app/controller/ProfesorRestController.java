@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -178,6 +178,7 @@ public class ProfesorRestController {
 	}
 	
 	@GetMapping(value = "/all")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public Map<String, Object> list() {
 
 		HashMap<String, Object> response = new HashMap<String, Object>();
@@ -199,6 +200,7 @@ public class ProfesorRestController {
 	}
 
 	@GetMapping(value = "/find/{id}")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public Map<String, Object> data(@PathVariable("id") Integer id) {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 
@@ -252,6 +254,7 @@ public class ProfesorRestController {
 		}
 	}
 	@PostMapping(value = "/create")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public ResponseEntity<String> create(@RequestBody Profesor data) {
 
 		try {
@@ -266,7 +269,7 @@ public class ProfesorRestController {
 	}
 
 	@PutMapping(value = "/update/{id}")
-
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public Map<String, Object> update(@PathVariable("id") Integer id, @RequestBody Profesor data) {
 
 		HashMap<String, Object> response = new HashMap<String, Object>();
