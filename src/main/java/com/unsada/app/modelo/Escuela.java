@@ -34,6 +34,12 @@ public class Escuela implements Serializable{
 	    @Column(name = "nombre")
 	    private String nombre;
 	    
+	    @Column(name="diegep")
+	    private String diegep;
+	    
+	    @Column(name="suvencion")
+	    private String suvencion;
+	    
 	   
 	    @JsonBackReference
 	    @ManyToMany(fetch = FetchType.EAGER ,mappedBy =  "escuelas")
@@ -74,10 +80,15 @@ public class Escuela implements Serializable{
 		}
 
 
-		public Escuela(Integer idEscuela, String nombre, List<Profesor> profesores) {
+		
+
+
+		public Escuela(Integer idEscuela, String nombre, String diegep, String suvencion, List<Profesor> profesores) {
 			super();
 			this.idEscuela = idEscuela;
 			this.nombre = nombre;
+			this.diegep = diegep;
+			this.suvencion = suvencion;
 			this.profesores = profesores;
 		}
 
@@ -87,10 +98,34 @@ public class Escuela implements Serializable{
 		}
 
 
+		public String getDiegep() {
+			return diegep;
+		}
+
+
+		public void setDiegep(String diegep) {
+			this.diegep = diegep;
+		}
+
+
+		public String getSuvencion() {
+			return suvencion;
+		}
+
+
+		public void setSuvencion(String suvencion) {
+			this.suvencion = suvencion;
+		}
+
+
 		@Override
 		public String toString() {
-			return "Escuela [idEscuela=" + idEscuela + ", nombre=" + nombre + ", profesores=" + profesores + "]";
+			return "Escuela [idEscuela=" + idEscuela + ", nombre=" + nombre + ", diegep=" + diegep + ", suvencion="
+					+ suvencion + ", profesores=" + profesores + "]";
 		}
+
+
+		
 
 
 		

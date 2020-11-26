@@ -45,6 +45,12 @@ public class Profesor implements Serializable {
 
 	@Column(name = "fecha_nacimiento")
 	private Date fecha_nacimiento;
+	
+	@Column(name = "antiguedad" )
+	private Integer antiguedad;
+	
+	@Column(name = "titulo_habilitante")
+	private String titulo_habilitante;
 
 	@JoinTable(
 			name = "rel_escuelas_profesores",
@@ -57,8 +63,9 @@ public class Profesor implements Serializable {
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private List<Escuela> escuelas = new ArrayList<>();
 
+
 	public Profesor(Integer id, Integer legajo, String nombre, String apellido, String especialidad, Date fechaIngreso,
-			Date fecha_nacimiento, List<Escuela> escuelas) {
+			Date fecha_nacimiento, Integer antiguedad, String titulo_habilitante, List<Escuela> escuelas) {
 		super();
 		this.id = id;
 		this.legajo = legajo;
@@ -67,6 +74,8 @@ public class Profesor implements Serializable {
 		this.especialidad = especialidad;
 		this.fechaIngreso = fechaIngreso;
 		this.fecha_nacimiento = fecha_nacimiento;
+		this.antiguedad = antiguedad;
+		this.titulo_habilitante = titulo_habilitante;
 		this.escuelas = escuelas;
 	}
 
@@ -138,12 +147,31 @@ public class Profesor implements Serializable {
 		this.escuelas = escuelas;
 	}
 
+	public Integer getAntiguedad() {
+		return antiguedad;
+	}
+
+	public void setAntiguedad(Integer antiguedad) {
+		this.antiguedad = antiguedad;
+	}
+
+	public String getTitulo_habilitante() {
+		return titulo_habilitante;
+	}
+
+	public void setTitulo_habilitante(String titulo_habilitante) {
+		this.titulo_habilitante = titulo_habilitante;
+	}
+
 	@Override
 	public String toString() {
 		return "Profesor [id=" + id + ", legajo=" + legajo + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", especialidad=" + especialidad + ", fechaIngreso=" + fechaIngreso + ", fecha_nacimiento="
-				+ fecha_nacimiento + ", escuelas=" + escuelas + "]";
+				+ fecha_nacimiento + ", antiguedad=" + antiguedad + ", titulo_habilitante=" + titulo_habilitante
+				+ ", escuelas=" + escuelas + "]";
 	}
+
+	
 	
 	
 

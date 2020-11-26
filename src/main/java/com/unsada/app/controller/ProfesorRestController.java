@@ -254,7 +254,7 @@ public class ProfesorRestController {
 		}
 	}
 	@PostMapping(value = "/create")
-	
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public ResponseEntity<String> create(@RequestBody Profesor data) {
 
 		try {
