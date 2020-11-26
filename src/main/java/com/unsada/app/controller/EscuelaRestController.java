@@ -188,6 +188,7 @@ public class EscuelaRestController {
 	
 	
 	@PostMapping(value="/create")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public ResponseEntity<String> create(@RequestBody Escuela data){
 		
 		try {
@@ -205,6 +206,7 @@ public class EscuelaRestController {
 	
 	
 	@PutMapping(value="/update/{id}")  
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public Map<String, Object> update(@PathVariable("id") Integer id,
 			@RequestBody Escuela data ){
 		
