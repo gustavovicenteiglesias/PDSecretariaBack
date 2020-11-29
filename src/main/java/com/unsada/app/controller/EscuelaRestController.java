@@ -229,6 +229,7 @@ public class EscuelaRestController {
 	
 	
 	@DeleteMapping(value="/delete/{id}")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public Map<String, Object> update(@PathVariable("id") Integer id){
 		
 		HashMap<String, Object> response = new HashMap<String, Object>();

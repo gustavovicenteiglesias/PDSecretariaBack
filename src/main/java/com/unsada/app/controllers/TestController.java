@@ -29,7 +29,7 @@ public class TestController {
 	//public ModelAndView allAccess() {
 		//return new ModelAndView("inicio");
 	public String allAccess() {
-		return "Public Content.";
+		return "Bienvenidos";
 	}
 	
 	@GetMapping("/user")
