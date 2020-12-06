@@ -51,6 +51,25 @@ public class Profesor implements Serializable {
 	
 	@Column(name = "titulo_habilitante")
 	private String titulo_habilitante;
+	
+	@Column(name = "dni")
+	private Integer dni;
+	
+	@Column(name = "calle")
+	private String calle;
+	
+	@Column(name = "numero")
+	private Integer numero;
+	
+	@Column(name = "localidad")
+	private String localidad;
+	
+	@Column(name = "codigopostal")
+	private Integer codigopostal;
+	
+	
+	
+	
 
 	@JoinTable(
 			name = "rel_escuelas_profesores",
@@ -63,9 +82,11 @@ public class Profesor implements Serializable {
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private List<Escuela> escuelas = new ArrayList<>();
 
+	
 
 	public Profesor(Integer id, Integer legajo, String nombre, String apellido, String especialidad, Date fechaIngreso,
-			Date fecha_nacimiento, Integer antiguedad, String titulo_habilitante, List<Escuela> escuelas) {
+			Date fecha_nacimiento, Integer antiguedad, String titulo_habilitante, Integer dni, String calle,
+			Integer numero, String localidad, Integer codigopostal, List<Escuela> escuelas) {
 		super();
 		this.id = id;
 		this.legajo = legajo;
@@ -76,6 +97,11 @@ public class Profesor implements Serializable {
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.antiguedad = antiguedad;
 		this.titulo_habilitante = titulo_habilitante;
+		this.dni = dni;
+		this.calle = calle;
+		this.numero = numero;
+		this.localidad = localidad;
+		this.codigopostal = codigopostal;
 		this.escuelas = escuelas;
 	}
 
@@ -162,14 +188,59 @@ public class Profesor implements Serializable {
 	public void setTitulo_habilitante(String titulo_habilitante) {
 		this.titulo_habilitante = titulo_habilitante;
 	}
+	
+	
+
+	public Integer getDni() {
+		return dni;
+	}
+
+	public void setDni(Integer dni) {
+		this.dni = dni;
+	}
+
+	public String getCalle() {
+		return calle;
+	}
+
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public Integer getCodigopostal() {
+		return codigopostal;
+	}
+
+	public void setCodigopostal(Integer codigopostal) {
+		this.codigopostal = codigopostal;
+	}
 
 	@Override
 	public String toString() {
 		return "Profesor [id=" + id + ", legajo=" + legajo + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", especialidad=" + especialidad + ", fechaIngreso=" + fechaIngreso + ", fecha_nacimiento="
 				+ fecha_nacimiento + ", antiguedad=" + antiguedad + ", titulo_habilitante=" + titulo_habilitante
-				+ ", escuelas=" + escuelas + "]";
+				+ ", dni=" + dni + ", calle=" + calle + ", numero=" + numero + ", localidad=" + localidad
+				+ ", codigopostal=" + codigopostal + ", escuelas=" + escuelas + "]";
 	}
+
+	
 
 	
 	

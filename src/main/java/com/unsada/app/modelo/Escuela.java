@@ -40,6 +40,18 @@ public class Escuela implements Serializable{
 	    @Column(name="suvencion")
 	    private String suvencion;
 	    
+	    @Column(name = "calle")
+		private String calle;
+		
+		@Column(name = "numero")
+		private Integer numero;
+		
+		@Column(name = "localidad")
+		private String localidad;
+		
+		@Column(name = "codigopostal")
+		private Integer codigopostal;
+	    
 	   
 	    @JsonBackReference
 	    @ManyToMany(fetch = FetchType.EAGER ,mappedBy =  "escuelas")
@@ -84,14 +96,63 @@ public class Escuela implements Serializable{
 		public void setSuvencion(String suvencion) {
 			this.suvencion = suvencion;
 		}
+		
+		
+
+		public String getCalle() {
+			return calle;
+		}
 
 
-		public Escuela(Integer idEscuela, String nombre, String diegep, String suvencion) {
+		public void setCalle(String calle) {
+			this.calle = calle;
+		}
+
+
+		public Integer getNumero() {
+			return numero;
+		}
+
+
+		public void setNumero(Integer numero) {
+			this.numero = numero;
+		}
+
+
+		public String getLocalidad() {
+			return localidad;
+		}
+
+
+		public void setLocalidad(String localidad) {
+			this.localidad = localidad;
+		}
+
+
+		public Integer getCodigopostal() {
+			return codigopostal;
+		}
+
+
+		public void setCodigopostal(Integer codigopostal) {
+			this.codigopostal = codigopostal;
+		}
+
+
+		
+
+
+		public Escuela(Integer idEscuela, String nombre, String diegep, String suvencion, String calle, Integer numero,
+				String localidad, Integer codigopostal) {
 			super();
 			this.idEscuela = idEscuela;
 			this.nombre = nombre;
 			this.diegep = diegep;
 			this.suvencion = suvencion;
+			this.calle = calle;
+			this.numero = numero;
+			this.localidad = localidad;
+			this.codigopostal = codigopostal;
 		}
 
 
@@ -103,8 +164,12 @@ public class Escuela implements Serializable{
 		@Override
 		public String toString() {
 			return "Escuela [idEscuela=" + idEscuela + ", nombre=" + nombre + ", diegep=" + diegep + ", suvencion="
-					+ suvencion + "]";
+					+ suvencion + ", calle=" + calle + ", numero=" + numero + ", localidad=" + localidad
+					+ ", codigopostal=" + codigopostal + "]";
 		}
+
+
+		
 
 
 	
