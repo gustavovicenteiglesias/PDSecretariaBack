@@ -198,6 +198,29 @@ public class ProfesorRestController {
 		}
 
 	}
+	
+	@GetMapping(value = "/buscarlike/{id}")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	public Map<String, Object> findByLegajoLike(@PathVariable String id) {
+		String likeName = "%"+id+"%";
+		HashMap<String,Object> response = new HashMap<String,Object>();
+		
+		
+		 
+			try { 
+				List<Profesor> empresaList; 
+				empresaList = (List<Profesor>) profesorServiceApi.findByLegajoLike(likeName);
+				response.put("message","Successful load");
+				response.put("data",empresaList);
+				response.put("success",true);
+				return response;
+				
+			} catch (Exception e) {  
+				response.put("message",e.getMessage()); 
+				response.put("success ",false);
+				return response;
+			}
+	}
 
 	@GetMapping(value = "/find/{id}")
 	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")

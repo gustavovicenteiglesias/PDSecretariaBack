@@ -92,6 +92,12 @@ public class ProfesorServiceImpl  implements ProfesorServiceApi{
 		return profesorDaoApi.proofesporescuela(id);
 	}
 
+	@Override
+	public Iterable<Profesor> findByLegajoLike(String legajo) {
+		// TODO Auto-generated method stub
+		return profesorDaoApi.findByLegajoLike(legajo);
+	}
+
 
 
 }

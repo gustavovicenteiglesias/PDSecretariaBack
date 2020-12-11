@@ -14,6 +14,7 @@ import com.unsada.app.modelo.Escuela;
 import com.unsada.app.modelo.Profesor;
 
 public interface ProfesorServiceApi extends CrudRepository<Profesor, Integer>{
+	Iterable<Profesor> findByLegajoLike(String legajo);
 	@Query(value="select * from profedor ORDER by id DESC LIMIT 1",nativeQuery = true)
 	Optional<Profesor> findUltimo();
 	@Query(value="select p.* from profesor p\r\n" + 
