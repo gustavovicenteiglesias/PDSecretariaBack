@@ -200,7 +200,7 @@ public class ProfesorRestController {
 	}
 	
 	@GetMapping(value = "/buscarlike/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	public Map<String, Object> findByLegajoLike(@PathVariable String id) {
 		String likeName =id;
 		HashMap<String,Object> response = new HashMap<String,Object>();
@@ -223,7 +223,7 @@ public class ProfesorRestController {
 	}
 
 	@GetMapping(value = "/find/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	public Map<String, Object> data(@PathVariable("id") Integer id) {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 
@@ -277,7 +277,7 @@ public class ProfesorRestController {
 		}
 	}
 	@PostMapping(value = "/create")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> create(@RequestBody Profesor data) {
 
 		try {
@@ -292,7 +292,7 @@ public class ProfesorRestController {
 	}
 
 	@PutMapping(value = "/update/{id}")
-
+	@PreAuthorize("hasRole('ADMIN')")
 	public Map<String, Object> update(@PathVariable("id") Integer id, @RequestBody Profesor data) {
 			System.out.println(data);
 		HashMap<String, Object> response = new HashMap<String, Object>();
