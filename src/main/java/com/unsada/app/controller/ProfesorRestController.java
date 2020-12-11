@@ -202,7 +202,7 @@ public class ProfesorRestController {
 	@GetMapping(value = "/buscarlike/{id}")
 	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public Map<String, Object> findByLegajoLike(@PathVariable String id) {
-		String likeName = "%"+id+"%";
+		String likeName =id;
 		HashMap<String,Object> response = new HashMap<String,Object>();
 		
 		
