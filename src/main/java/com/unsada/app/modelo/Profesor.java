@@ -29,7 +29,7 @@ public class Profesor implements Serializable {
 	private Integer id;
 
 	@Column(name = "legajo")
-	private Integer legajo;
+	private String legajo;
 
 	@Column(name = "nombre")
 	private String nombre;
@@ -84,7 +84,7 @@ public class Profesor implements Serializable {
 
 	
 
-	public Profesor(Integer id, Integer legajo, String nombre, String apellido, String especialidad, Date fechaIngreso,
+	public Profesor(Integer id, String legajo, String nombre, String apellido, String especialidad, Date fechaIngreso,
 			Date fecha_nacimiento, Integer antiguedad, String titulo_habilitante, Integer dni, String calle,
 			Integer numero, String localidad, Integer codigopostal, List<Escuela> escuelas) {
 		super();
@@ -117,11 +117,11 @@ public class Profesor implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getLegajo() {
+	public String getLegajo() {
 		return legajo;
 	}
 
-	public void setLegajo(Integer legajo) {
+	public void setLegajo(String legajo) {
 		this.legajo = legajo;
 	}
 
